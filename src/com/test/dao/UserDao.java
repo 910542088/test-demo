@@ -1,5 +1,5 @@
 package com.test.dao;
-
+//create table users(id int primary key auto_increment,username varchar(50),password varchar(50),sex varchar(50),email varchar(50));
 import com.test.entity.Users;
 import com.test.util.JavaUtil;
 
@@ -42,7 +42,7 @@ public class UserDao {
         try {
             rs = ps.executeQuery();
             while (rs.next()) {
-                Integer userId = rs.getInt("userId");
+                Integer userId = rs.getInt("Id");
                 String userName = rs.getString("userName");
                 String password = rs.getString("password");
                 String sex = rs.getString("sex");
@@ -60,7 +60,7 @@ public class UserDao {
 
     public int del(String userId) {
         int result = 0;
-        String sql = "delete from Users where userId=?";
+        String sql = "delete from Users where Id=?";
         PreparedStatement ps = util.createstatement(sql);
         try {
             ps.setInt(1, Integer.parseInt(userId));

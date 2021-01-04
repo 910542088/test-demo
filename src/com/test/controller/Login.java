@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class Login extends HttpServlet {
@@ -18,10 +19,16 @@ public class Login extends HttpServlet {
         String password = req.getParameter("password");
 
         int result = dao.login(userName, password);
+
+        if (result == 1) {
+            req.getSession().setAttribute("int", result);
+            req.getSession().setAttribute("name", userName);
+        }
+
         resp.setContentType("text/html;charset=utf-8");
 //        源码充分说明print函数的结果都为String类型！！！，前端接收注意用String类型判断  [==="result"] 格式判断
         resp.getWriter().print(result);
-
+//        resp.sendRedirect("/index.jsp");
     }
 
 }

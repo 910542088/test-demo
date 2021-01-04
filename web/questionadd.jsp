@@ -1,12 +1,16 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+String basePath = request.getScheme()+"://"+request.getServerName() +":"+request.getServerPort()+request.getContextPath()+"/";
+%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <base href="<%=basePath%>">
 </head>
 <body>
 <center>
-    <form action="/questionadd">
+    <form action="questionadd">
         <table border="5px">
             <tr>
                 <td>试题内容</td>

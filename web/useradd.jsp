@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+String basePath = request.getScheme()+"://"+request.getServerName() +":"+request.getServerPort()+request.getContextPath()+"/";
+%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <base href="<%=basePath%>">
 </head>
 <body>
 <center>
     <table border="5px">
-        <form action="/useradd" method="get">
+        <form action="useradd" method="get">
             <tr>
                 <td>用户名称</td>
                 <td><input type="text" name="userName"></td>

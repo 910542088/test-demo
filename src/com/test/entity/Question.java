@@ -9,9 +9,7 @@ public class Question {
     private String d;
     private String answer;
 
-    public Integer getNum() {
-        return num;
-    }
+    public Integer getNum() { return num; }
 
     public void setNum(Integer num) {
         this.num = num;
