@@ -12,6 +12,12 @@ import java.io.IOException;
 public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        getPost(req, resp);
+//        resp.sendRedirect("/index.jsp");
+//        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+    }
+
+    private void getPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("utf-8");
         UserDao dao = new UserDao();
 
@@ -28,7 +34,6 @@ public class Login extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
 //        源码充分说明print函数的结果都为String类型！！！，前端接收注意用String类型判断  [==="result"] 格式判断
         resp.getWriter().print(result);
-//        resp.sendRedirect("/index.jsp");
     }
 
 }
