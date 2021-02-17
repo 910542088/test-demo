@@ -140,5 +140,32 @@ public class QuestionDao {
         }
         return result;
     }
+
+    public List<Question> findSelect() {
+        String sql = "select * from questions order by rand() limit 0,4;";
+        ResultSet rs = null;
+        PreparedStatement ps;
+        List<Question> list = new ArrayList<>();
+        ps = util.createstatement(sql);
+        try {
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int num = rs.getInt("num");
+                String question = rs.getString("question");
+                String a = rs.getString("a");
+                String b = rs.getString("b");
+                String c = rs.getString("c");
+                String d = rs.getString("d");
+                String answer = rs.getString("answer");
+                Question question1 = new Question(num, question, a, b, c, d, answer);
+                list.add(question1);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            util.close(rs);
+        }
+        return list;
+    }
 }
 

@@ -14,7 +14,9 @@ public class LoginFilter implements Filter {
         //需要判断url,所以向下转型
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        System.out.println(request.getRequestURI());;
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
+        System.out.println(request.getRequestURI());
         /*
          * 这里用uri或是url都是可以判断请求的,只是显示的路径详细信息不同
          * url代表地址栏中的地址: http://localhost:8080/demo/login.do

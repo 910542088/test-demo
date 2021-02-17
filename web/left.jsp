@@ -21,6 +21,9 @@ String basePath = request.getScheme()+"://"+request.getServerName() +":"+request
                 <li><a href="questionfind" target="right">试题信息查询</a></li>
             </ol>
         <li>考试管理</li>
+        <ol>
+            <li><a href="questionSelect" target="right">参加考试</a></li>
+        </ol>
     </ul>
 </body>
 </html>
